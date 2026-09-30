@@ -1,0 +1,13 @@
+# feito por: maquinzz
+cmake_minimum_required(VERSION 3.16)
+project(memory-signature-scanner VERSION 1.0.0 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+if(WIN32)
+  add_executable(scanner src/main.cpp src/scanner.cpp src/proc_win.cpp)
+else()
+  add_executable(scanner src/main.cpp src/scanner.cpp src/proc_linux.cpp src/proc_win.cpp)
+endif()
+target_include_directories(scanner PRIVATE include)
+target_compile_options(scanner PRIVATE -Wall -Wextra -Wpedantic -Werror -D_FORTIFY_SOURCE=2 -fstack-protector-strong)

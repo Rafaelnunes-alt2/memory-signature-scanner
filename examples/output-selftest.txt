@@ -1,0 +1,3 @@
+selftest_exact=1
+selftest_wild=2
+SELFTEST_OK
